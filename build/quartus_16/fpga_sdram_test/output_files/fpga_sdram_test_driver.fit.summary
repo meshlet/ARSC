@@ -1,0 +1,20 @@
+Fitter Status : Successful - Sun Jan 15 00:22:03 2017
+Quartus Prime Version : 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+Revision Name : fpga_sdram_test_driver
+Top-level Entity Name : fpga_sdram_test_driver
+Family : Cyclone V
+Device : 5CEBA4F23C7
+Timing Models : Final
+Logic utilization (in ALMs) : 260 / 18,480 ( 1 % )
+Total registers : 421
+Total pins : 61 / 224 ( 27 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 3,153,920 ( 0 % )
+Total RAM Blocks : 0 / 308 ( 0 % )
+Total DSP Blocks : 0 / 66 ( 0 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1 / 4 ( 25 % )
+Total DLLs : 0 / 4 ( 0 % )

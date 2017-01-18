@@ -1,0 +1,58 @@
+
+State Machine - |fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg
+Name state_reg.failed state_reg.passed state_reg.compare state_reg.read1 state_reg.read0 state_reg.write1 state_reg.write0 state_reg.idle 
+state_reg.idle 0 0 0 0 0 0 0 0 
+state_reg.write0 0 0 0 0 0 0 1 1 
+state_reg.write1 0 0 0 0 0 1 0 1 
+state_reg.read0 0 0 0 0 1 0 0 1 
+state_reg.read1 0 0 0 1 0 0 0 1 
+state_reg.compare 0 0 1 0 0 0 0 1 
+state_reg.passed 0 1 0 0 0 0 0 1 
+state_reg.failed 1 0 0 0 0 0 0 1 
+
+State Machine - |fpga_sdram_test_driver|fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg
+Name state_reg.passed state_reg.read2 state_reg.read1 state_reg.read0 state_reg.write2 state_reg.write1 state_reg.write0 state_reg.idle state_reg.failed 
+state_reg.idle 0 0 0 0 0 0 0 0 0 
+state_reg.write0 0 0 0 0 0 0 1 1 0 
+state_reg.write1 0 0 0 0 0 1 0 1 0 
+state_reg.write2 0 0 0 0 1 0 0 1 0 
+state_reg.read0 0 0 0 1 0 0 0 1 0 
+state_reg.read1 0 0 1 0 0 0 0 1 0 
+state_reg.read2 0 1 0 0 0 0 0 1 0 
+state_reg.passed 1 0 0 0 0 0 0 1 0 
+state_reg.failed 0 0 0 0 0 0 0 1 1 
+
+State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next
+Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
+m_next.000000001 0 0 0 0 
+m_next.000001000 0 0 1 1 
+m_next.000010000 0 1 0 1 
+m_next.010000000 1 0 0 1 
+
+State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state
+Name m_state.100000000 m_state.010000000 m_state.001000000 m_state.000100000 m_state.000010000 m_state.000001000 m_state.000000100 m_state.000000010 m_state.000000001 
+m_state.000000001 0 0 0 0 0 0 0 0 0 
+m_state.000000010 0 0 0 0 0 0 0 1 1 
+m_state.000000100 0 0 0 0 0 0 1 0 1 
+m_state.000001000 0 0 0 0 0 1 0 0 1 
+m_state.000010000 0 0 0 0 1 0 0 0 1 
+m_state.000100000 0 0 0 1 0 0 0 0 1 
+m_state.001000000 0 0 1 0 0 0 0 0 1 
+m_state.010000000 0 1 0 0 0 0 0 0 1 
+m_state.100000000 1 0 0 0 0 0 0 0 1 
+
+State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next
+Name i_next.111 i_next.101 i_next.010 i_next.000 
+i_next.000 0 0 0 0 
+i_next.010 0 0 1 1 
+i_next.101 0 1 0 1 
+i_next.111 1 0 0 1 
+
+State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state
+Name i_state.111 i_state.101 i_state.011 i_state.010 i_state.001 i_state.000 
+i_state.000 0 0 0 0 0 0 
+i_state.001 0 0 0 0 1 1 
+i_state.010 0 0 0 1 0 1 
+i_state.011 0 0 1 0 0 1 
+i_state.101 0 1 0 0 0 1 
+i_state.111 1 0 0 0 0 1 

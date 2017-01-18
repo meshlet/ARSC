@@ -1,0 +1,1288 @@
+Analysis & Synthesis report for fpga_sdram_test_driver
+Sun Jan 15 00:21:24 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg
+  9. State Machine - |fpga_sdram_test_driver|fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg
+ 10. State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next
+ 11. State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state
+ 12. State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next
+ 13. State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state
+ 14. Registers Protected by Synthesis
+ 15. Registers Removed During Synthesis
+ 16. Removed Registers Triggering Further Register Optimizations
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 20. Source assignments for sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit
+ 21. Source assignments for sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+ 22. Source assignments for sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+ 23. Parameter Settings for User Entity Instance: pll:pll_unit|altera_pll:altera_pll_i
+ 24. Parameter Settings for User Entity Instance: sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller
+ 25. Parameter Settings for User Entity Instance: sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+ 26. Parameter Settings for User Entity Instance: sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+ 27. Parameter Settings for User Entity Instance: fpga_sdram_writeall_readall_test:writeall_readall_test
+ 28. Parameter Settings for User Entity Instance: fpga_sdram_writeone_readone_test:writeone_readone_test
+ 29. Port Connectivity Checks: "sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1"
+ 30. Port Connectivity Checks: "sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller"
+ 31. Port Connectivity Checks: "sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module"
+ 32. Port Connectivity Checks: "sdram_control_wrapper:sdram_ctrl_unit"
+ 33. Port Connectivity Checks: "pll:pll_unit|altera_pll:altera_pll_i"
+ 34. Port Connectivity Checks: "pll:pll_unit"
+ 35. Post-Synthesis Netlist Statistics for Top Partition
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Jan 15 00:21:24 2017       ;
+; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Lite Edition ;
+; Revision Name                   ; fpga_sdram_test_driver                      ;
+; Top-level Entity Name           ; fpga_sdram_test_driver                      ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 376                                         ;
+; Total pins                      ; 61                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 1                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                                     ;
++---------------------------------------------------------------------------------+------------------------+------------------------+
+; Option                                                                          ; Setting                ; Default Value          ;
++---------------------------------------------------------------------------------+------------------------+------------------------+
+; Device                                                                          ; 5CEBA4F23C7            ;                        ;
+; Top-level entity name                                                           ; fpga_sdram_test_driver ; fpga_sdram_test_driver ;
+; Family name                                                                     ; Cyclone V              ; Cyclone V              ;
+; Safe State Machine                                                              ; On                     ; Off                    ;
+; Use smart compilation                                                           ; Off                    ; Off                    ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                     ; On                     ;
+; Enable compact report table                                                     ; Off                    ; Off                    ;
+; Restructure Multiplexers                                                        ; Auto                   ; Auto                   ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                    ; Off                    ;
+; Create Debugging Nodes for IP Cores                                             ; Off                    ; Off                    ;
+; Preserve fewer node names                                                       ; On                     ; On                     ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                    ; Off                    ;
+; Verilog Version                                                                 ; Verilog_2001           ; Verilog_2001           ;
+; VHDL Version                                                                    ; VHDL_1993              ; VHDL_1993              ;
+; State Machine Processing                                                        ; Auto                   ; Auto                   ;
+; Extract Verilog State Machines                                                  ; On                     ; On                     ;
+; Extract VHDL State Machines                                                     ; On                     ; On                     ;
+; Ignore Verilog initial constructs                                               ; Off                    ; Off                    ;
+; Iteration limit for constant Verilog loops                                      ; 5000                   ; 5000                   ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                    ; 250                    ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                     ; On                     ;
+; Infer RAMs from Raw Logic                                                       ; On                     ; On                     ;
+; Parallel Synthesis                                                              ; On                     ; On                     ;
+; DSP Block Balancing                                                             ; Auto                   ; Auto                   ;
+; NOT Gate Push-Back                                                              ; On                     ; On                     ;
+; Power-Up Don't Care                                                             ; On                     ; On                     ;
+; Remove Redundant Logic Cells                                                    ; Off                    ; Off                    ;
+; Remove Duplicate Registers                                                      ; On                     ; On                     ;
+; Ignore CARRY Buffers                                                            ; Off                    ; Off                    ;
+; Ignore CASCADE Buffers                                                          ; Off                    ; Off                    ;
+; Ignore GLOBAL Buffers                                                           ; Off                    ; Off                    ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                    ; Off                    ;
+; Ignore LCELL Buffers                                                            ; Off                    ; Off                    ;
+; Ignore SOFT Buffers                                                             ; On                     ; On                     ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                    ; Off                    ;
+; Optimization Technique                                                          ; Balanced               ; Balanced               ;
+; Carry Chain Length                                                              ; 70                     ; 70                     ;
+; Auto Carry Chains                                                               ; On                     ; On                     ;
+; Auto Open-Drain Pins                                                            ; On                     ; On                     ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                    ; Off                    ;
+; Auto ROM Replacement                                                            ; On                     ; On                     ;
+; Auto RAM Replacement                                                            ; On                     ; On                     ;
+; Auto DSP Block Replacement                                                      ; On                     ; On                     ;
+; Auto Shift Register Replacement                                                 ; Auto                   ; Auto                   ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                   ; Auto                   ;
+; Auto Clock Enable Replacement                                                   ; On                     ; On                     ;
+; Strict RAM Replacement                                                          ; Off                    ; Off                    ;
+; Allow Synchronous Control Signals                                               ; On                     ; On                     ;
+; Force Use of Synchronous Clear Signals                                          ; Off                    ; Off                    ;
+; Auto Resource Sharing                                                           ; Off                    ; Off                    ;
+; Allow Any RAM Size For Recognition                                              ; Off                    ; Off                    ;
+; Allow Any ROM Size For Recognition                                              ; Off                    ; Off                    ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                    ; Off                    ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                     ; On                     ;
+; Ignore translate_off and synthesis_off directives                               ; Off                    ; Off                    ;
+; Timing-Driven Synthesis                                                         ; On                     ; On                     ;
+; Report Parameter Settings                                                       ; On                     ; On                     ;
+; Report Source Assignments                                                       ; On                     ; On                     ;
+; Report Connectivity Checks                                                      ; On                     ; On                     ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                    ; Off                    ;
+; Synchronization Register Chain Length                                           ; 3                      ; 3                      ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation     ; Normal compilation     ;
+; HDL message level                                                               ; Level2                 ; Level2                 ;
+; Suppress Register Optimization Related Messages                                 ; Off                    ; Off                    ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                   ; 5000                   ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                   ; 5000                   ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                    ; 100                    ;
+; Clock MUX Protection                                                            ; On                     ; On                     ;
+; Auto Gated Clock Conversion                                                     ; Off                    ; Off                    ;
+; Block Design Naming                                                             ; Auto                   ; Auto                   ;
+; SDC constraint protection                                                       ; Off                    ; Off                    ;
+; Synthesis Effort                                                                ; Auto                   ; Auto                   ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                     ; On                     ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                    ; Off                    ;
+; Analysis & Synthesis Message Level                                              ; Medium                 ; Medium                 ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                   ; Auto                   ;
+; Resource Aware Inference For Block RAM                                          ; On                     ; On                     ;
+; Synthesis Seed                                                                  ; 1                      ; 1                      ;
+; Automatic Parallel Synthesis                                                    ; On                     ; On                     ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                    ; Off                    ;
++---------------------------------------------------------------------------------+------------------------+------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                     ;
++------------------------------------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                             ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                                                           ; Library ;
++------------------------------------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ../../../sdram_controller/fpga_sdram_test/fpga_sdram_writeone_readone_test.v ; yes             ; User Verilog HDL File  ; C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeone_readone_test.v ;         ;
+; ../../../sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v ; yes             ; User Verilog HDL File  ; C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v ;         ;
+; ../../../sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v           ; yes             ; User Verilog HDL File  ; C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v           ;         ;
+; ../../../sdram_controller/hdl/sdram_control_wrapper.v                        ; yes             ; User Verilog HDL File  ; C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control_wrapper.v                        ;         ;
+; ../../../sdram_controller/hdl/sdram_control.v                                ; yes             ; User Verilog HDL File  ; C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v                                ;         ;
+; ../../../sdram_controller/hdl/pll.v                                          ; yes             ; User Verilog HDL File  ; C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/pll.v                                          ;         ;
+; ../../../sdram_controller/hdl/altera_reset_synchronizer.v                    ; yes             ; User Verilog HDL File  ; C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/altera_reset_synchronizer.v                    ;         ;
+; ../../../sdram_controller/hdl/altera_reset_controller.v                      ; yes             ; User Verilog HDL File  ; C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/altera_reset_controller.v                      ;         ;
+; altera_pll.v                                                                 ; yes             ; Megafunction           ; c:/altera_lite/16.0/quartus/libraries/megafunctions/altera_pll.v                                                                       ;         ;
++------------------------------------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                       ;
++---------------------------------------------+-----------------------------------------------------+
+; Resource                                    ; Usage                                               ;
++---------------------------------------------+-----------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 265                                                 ;
+;                                             ;                                                     ;
+; Combinational ALUT usage for logic          ; 450                                                 ;
+;     -- 7 input functions                    ; 4                                                   ;
+;     -- 6 input functions                    ; 65                                                  ;
+;     -- 5 input functions                    ; 65                                                  ;
+;     -- 4 input functions                    ; 98                                                  ;
+;     -- <=3 input functions                  ; 218                                                 ;
+;                                             ;                                                     ;
+; Dedicated logic registers                   ; 376                                                 ;
+;                                             ;                                                     ;
+; I/O pins                                    ; 61                                                  ;
+;                                             ;                                                     ;
+; Total DSP Blocks                            ; 0                                                   ;
+;                                             ;                                                     ;
+; Total PLLs                                  ; 2                                                   ;
+;     -- PLLs                                 ; 2                                                   ;
+;                                             ;                                                     ;
+; Maximum fan-out node                        ; pll:pll_unit|altera_pll:altera_pll_i|outclk_wire[0] ;
+; Maximum fan-out                             ; 378                                                 ;
+; Total fan-out                               ; 3103                                                ;
+; Average fan-out                             ; 3.21                                                ;
++---------------------------------------------+-----------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                 ;
++----------------------------------------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+--------------+
+; Compilation Hierarchy Node                                                       ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                  ; Entity Name                      ; Library Name ;
++----------------------------------------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+--------------+
+; |fpga_sdram_test_driver                                                          ; 450 (51)          ; 376 (2)      ; 0                 ; 0          ; 61   ; 0            ; |fpga_sdram_test_driver                                                                                                                                              ; fpga_sdram_test_driver           ; work         ;
+;    |fpga_sdram_writeall_readall_test:writeall_readall_test|                      ; 76 (76)           ; 66 (66)      ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|fpga_sdram_writeall_readall_test:writeall_readall_test                                                                                       ; fpga_sdram_writeall_readall_test ; work         ;
+;    |fpga_sdram_writeone_readone_test:writeone_readone_test|                      ; 91 (91)           ; 65 (65)      ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test                                                                                       ; fpga_sdram_writeone_readone_test ; work         ;
+;    |pll:pll_unit|                                                                ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|pll:pll_unit                                                                                                                                 ; pll                              ; work         ;
+;       |altera_pll:altera_pll_i|                                                  ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|pll:pll_unit|altera_pll:altera_pll_i                                                                                                         ; altera_pll                       ; work         ;
+;    |sdram_control_wrapper:sdram_ctrl_unit|                                       ; 232 (0)           ; 243 (0)      ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit                                                                                                        ; sdram_control_wrapper            ; work         ;
+;       |altera_reset_controller:rst_controller|                                   ; 0 (0)             ; 3 (0)        ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller                                                                 ; altera_reset_controller          ; work         ;
+;          |altera_reset_synchronizer:alt_rst_sync_uq1|                            ; 0 (0)             ; 3 (3)        ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1                      ; altera_reset_synchronizer        ; work         ;
+;       |sdram_control:sdram_control_unit|                                         ; 232 (181)         ; 240 (152)    ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit                                                                       ; sdram_control                    ; work         ;
+;          |sdram_control_input_efifo_module:the_sdram_control_input_efifo_module| ; 51 (51)           ; 88 (88)      ; 0                 ; 0          ; 0    ; 0            ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module ; sdram_control_input_efifo_module ; work         ;
++----------------------------------------------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type: Safe One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg                                                               ;
++-------------------+------------------+------------------+-------------------+-----------------+-----------------+------------------+------------------+----------------+
+; Name              ; state_reg.failed ; state_reg.passed ; state_reg.compare ; state_reg.read1 ; state_reg.read0 ; state_reg.write1 ; state_reg.write0 ; state_reg.idle ;
++-------------------+------------------+------------------+-------------------+-----------------+-----------------+------------------+------------------+----------------+
+; state_reg.idle    ; 0                ; 0                ; 0                 ; 0               ; 0               ; 0                ; 0                ; 0              ;
+; state_reg.write0  ; 0                ; 0                ; 0                 ; 0               ; 0               ; 0                ; 1                ; 1              ;
+; state_reg.write1  ; 0                ; 0                ; 0                 ; 0               ; 0               ; 1                ; 0                ; 1              ;
+; state_reg.read0   ; 0                ; 0                ; 0                 ; 0               ; 1               ; 0                ; 0                ; 1              ;
+; state_reg.read1   ; 0                ; 0                ; 0                 ; 1               ; 0               ; 0                ; 0                ; 1              ;
+; state_reg.compare ; 0                ; 0                ; 1                 ; 0               ; 0               ; 0                ; 0                ; 1              ;
+; state_reg.passed  ; 0                ; 1                ; 0                 ; 0               ; 0               ; 0                ; 0                ; 1              ;
+; state_reg.failed  ; 1                ; 0                ; 0                 ; 0               ; 0               ; 0                ; 0                ; 1              ;
++-------------------+------------------+------------------+-------------------+-----------------+-----------------+------------------+------------------+----------------+
+
+
+Encoding Type: Safe One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fpga_sdram_test_driver|fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg                                                                               ;
++------------------+------------------+-----------------+-----------------+-----------------+------------------+------------------+------------------+----------------+------------------+
+; Name             ; state_reg.passed ; state_reg.read2 ; state_reg.read1 ; state_reg.read0 ; state_reg.write2 ; state_reg.write1 ; state_reg.write0 ; state_reg.idle ; state_reg.failed ;
++------------------+------------------+-----------------+-----------------+-----------------+------------------+------------------+------------------+----------------+------------------+
+; state_reg.idle   ; 0                ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                ; 0              ; 0                ;
+; state_reg.write0 ; 0                ; 0               ; 0               ; 0               ; 0                ; 0                ; 1                ; 1              ; 0                ;
+; state_reg.write1 ; 0                ; 0               ; 0               ; 0               ; 0                ; 1                ; 0                ; 1              ; 0                ;
+; state_reg.write2 ; 0                ; 0               ; 0               ; 0               ; 1                ; 0                ; 0                ; 1              ; 0                ;
+; state_reg.read0  ; 0                ; 0               ; 0               ; 1               ; 0                ; 0                ; 0                ; 1              ; 0                ;
+; state_reg.read1  ; 0                ; 0               ; 1               ; 0               ; 0                ; 0                ; 0                ; 1              ; 0                ;
+; state_reg.read2  ; 0                ; 1               ; 0               ; 0               ; 0                ; 0                ; 0                ; 1              ; 0                ;
+; state_reg.passed ; 1                ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                ; 1              ; 0                ;
+; state_reg.failed ; 0                ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                ; 1              ; 1                ;
++------------------+------------------+-----------------+-----------------+-----------------+------------------+------------------+------------------+----------------+------------------+
+
+
+Encoding Type: Safe One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next ;
++------------------+------------------+------------------+------------------+-------------------------------------------+
+; Name             ; m_next.010000000 ; m_next.000010000 ; m_next.000001000 ; m_next.000000001                          ;
++------------------+------------------+------------------+------------------+-------------------------------------------+
+; m_next.000000001 ; 0                ; 0                ; 0                ; 0                                         ;
+; m_next.000001000 ; 0                ; 0                ; 1                ; 1                                         ;
+; m_next.000010000 ; 0                ; 1                ; 0                ; 1                                         ;
+; m_next.010000000 ; 1                ; 0                ; 0                ; 1                                         ;
++------------------+------------------+------------------+------------------+-------------------------------------------+
+
+
+Encoding Type: Safe One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state                                                                                ;
++-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+
+; Name              ; m_state.100000000 ; m_state.010000000 ; m_state.001000000 ; m_state.000100000 ; m_state.000010000 ; m_state.000001000 ; m_state.000000100 ; m_state.000000010 ; m_state.000000001 ;
++-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+
+; m_state.000000001 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ;
+; m_state.000000010 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 1                 ;
+; m_state.000000100 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 1                 ;
+; m_state.000001000 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 1                 ;
+; m_state.000010000 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; m_state.000100000 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; m_state.001000000 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; m_state.010000000 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; m_state.100000000 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
++-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+
+
+
+Encoding Type: Safe One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next ;
++------------+------------+------------+------------+-------------------------------------------------------------------+
+; Name       ; i_next.111 ; i_next.101 ; i_next.010 ; i_next.000                                                        ;
++------------+------------+------------+------------+-------------------------------------------------------------------+
+; i_next.000 ; 0          ; 0          ; 0          ; 0                                                                 ;
+; i_next.010 ; 0          ; 0          ; 1          ; 1                                                                 ;
+; i_next.101 ; 0          ; 1          ; 0          ; 1                                                                 ;
+; i_next.111 ; 1          ; 0          ; 0          ; 1                                                                 ;
++------------+------------+------------+------------+-------------------------------------------------------------------+
+
+
+Encoding Type: Safe One-Hot
++------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state ;
++-------------+-------------+-------------+-------------+-------------+-------------+------------------------------------+
+; Name        ; i_state.111 ; i_state.101 ; i_state.011 ; i_state.010 ; i_state.001 ; i_state.000                        ;
++-------------+-------------+-------------+-------------+-------------+-------------+------------------------------------+
+; i_state.000 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                                  ;
+; i_state.001 ; 0           ; 0           ; 0           ; 0           ; 1           ; 1                                  ;
+; i_state.010 ; 0           ; 0           ; 0           ; 1           ; 0           ; 1                                  ;
+; i_state.011 ; 0           ; 0           ; 1           ; 0           ; 0           ; 1                                  ;
+; i_state.101 ; 0           ; 1           ; 0           ; 0           ; 0           ; 1                                  ;
+; i_state.111 ; 1           ; 0           ; 0           ; 0           ; 0           ; 1                                  ;
++-------------+-------------+-------------+-------------+-------------+-------------+------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Protected by Synthesis                                                                                                                                                                                                                                               ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; Register Name                                                                                                                                                  ; Protected by Synthesis Attribute or Preserve Register Assignment ; Not to be Touched by Netlist Optimizations ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg.passed                                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.passed                                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg.failed                                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.failed                                                                                        ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.000000010                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.000001000                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.000010000                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.001000000                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.000000100                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.000100000                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.010000000                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.100000000                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state.000000001                                                                       ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next.010000000                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg.write0                                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg.read0                                                                                         ; no                                                               ; yes                                        ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg.idle                                                                                          ; no                                                               ; yes                                        ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg.read1                                                                                         ; no                                                               ; yes                                        ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg.write1                                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg.compare                                                                                       ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.idle                                                                                          ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.write0                                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.write1                                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.write2                                                                                        ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.read0                                                                                         ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.read1                                                                                         ; no                                                               ; yes                                        ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg.read2                                                                                         ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state.111                                                                             ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next.000001000                                                                        ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next.000010000                                                                        ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[0] ; yes                                                              ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state.101                                                                             ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next.000000001                                                                        ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state.000                                                                             ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state.011                                                                             ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state.001                                                                             ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state.010                                                                             ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next.111                                                                              ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[1] ; yes                                                              ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next.101                                                                              ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next.000                                                                              ; no                                                               ; yes                                        ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next.010                                                                              ; no                                                               ; yes                                        ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                                             ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+; Register name                                                                                                                                               ; Reason for Removal                                                                               ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_addr[4,5]                                                                          ; Stuck at VCC due to stuck port data_in                                                           ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module|entry_0[16,17] ; Stuck at GND due to stuck port data_in                                                           ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module|entry_1[16,17] ; Stuck at GND due to stuck port data_in                                                           ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_addr[0..3,6..11]                                                                   ; Merged with sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_addr[12]    ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|active_dqm[1]                                                                        ; Merged with sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|active_dqm[0] ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg~4                                                                                          ; Lost fanout                                                                                      ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg~5                                                                                          ; Lost fanout                                                                                      ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg~6                                                                                          ; Lost fanout                                                                                      ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg~4                                                                                          ; Lost fanout                                                                                      ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg~5                                                                                          ; Lost fanout                                                                                      ;
+; fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg~6                                                                                          ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next~9                                                                             ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next~10                                                                            ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next~13                                                                            ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next~14                                                                            ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next~16                                                                            ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next~4                                                                             ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next~5                                                                             ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next~6                                                                             ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state~14                                                                           ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state~15                                                                           ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state~16                                                                           ; Lost fanout                                                                                      ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|active_dqm[0]                                                                        ; Stuck at GND due to stuck port data_in                                                           ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_dqm[0,1]                                                                           ; Stuck at GND due to stuck port data_in                                                           ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_count[2]                                                                           ; Stuck at GND due to stuck port data_in                                                           ;
+; Total Number of Removed Registers = 38                                                                                                                      ;                                                                                                  ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                                  ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
+; Register name                                                                                                                                            ; Reason for Removal        ; Registers Removed due to This Register                                                ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module|entry_0[16] ; Stuck at GND              ; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|active_dqm[0], ;
+;                                                                                                                                                          ; due to stuck port data_in ; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_dqm[0]       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module|entry_0[17] ; Stuck at GND              ; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_dqm[1]       ;
+;                                                                                                                                                          ; due to stuck port data_in ;                                                                                       ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 376   ;
+; Number of registers using Synchronous Clear  ; 67    ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 246   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 258   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                              ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                               ; Fan out ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_cmd[2]                                                                                 ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_cmd[1]                                                                                 ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_cmd[0]                                                                                 ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_cmd[3]                                                                                 ; 1       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_addr[12]                                                                               ; 11      ;
+; sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain_out ; 115     ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_cmd[2]                                                                                 ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_cmd[1]                                                                                 ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_cmd[0]                                                                                 ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_cmd[3]                                                                                 ; 2       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[15]                                                                                          ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[12]                                                                                          ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[13]                                                                                          ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[14]                                                                                          ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[9]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[10]                                                                                          ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[11]                                                                                          ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[6]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[7]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[8]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[0]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[1]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[2]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[3]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[4]                                                                                           ; 3       ;
+; fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[5]                                                                                           ; 3       ;
+; sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[0]  ; 1       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|refresh_counter[7]                                                                       ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|refresh_counter[12]                                                                      ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|refresh_counter[9]                                                                       ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|refresh_counter[8]                                                                       ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|refresh_counter[3]                                                                       ; 2       ;
+; sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[1]  ; 1       ;
+; Total number of inverted registers = 33                                                                                                                         ;         ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_dqm[0]                                                                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 0 LEs                ; 8 LEs                  ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module|entries[1] ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_count[0]                                                                       ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_bank[0]                                                                        ;
+; 5:1                ; 25 bits   ; 75 LEs        ; 0 LEs                ; 75 LEs                 ; Yes        ; |fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test|addr_reg[6]                                                                                      ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_addr[12]                                                                       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_addr[5]                                                                        ;
+; 7:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_addr[6]                                                                        ;
+; 7:1                ; 41 bits   ; 164 LEs       ; 0 LEs                ; 164 LEs                ; Yes        ; |fpga_sdram_test_driver|fpga_sdram_writeall_readall_test:writeall_readall_test|addr_reg[8]                                                                                      ;
+; 7:1                ; 42 bits   ; 168 LEs       ; 0 LEs                ; 168 LEs                ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|active_data[11]                                                                  ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |fpga_sdram_test_driver|state_reg[1]                                                                                                                                            ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_data[0]                                                                        ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test|wr_data_reg[8]                                                                                   ;
+; 4:1                ; 43 bits   ; 86 LEs        ; 86 LEs               ; 0 LEs                  ; No         ; |fpga_sdram_test_driver|Mux6                                                                                                                                                    ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; No         ; |fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test|Selector41                                                                                       ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; No         ; |fpga_sdram_test_driver|fpga_sdram_writeall_readall_test:writeall_readall_test|Selector47                                                                                       ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test|Selector47                                                                                       ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|Selector34                                                                       ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 10 LEs               ; 6 LEs                  ; No         ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|Selector24                                                                       ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 14 LEs               ; 6 LEs                  ; No         ; |fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|Selector27                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Source assignments for sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit ;
++-----------------------------+-------+------+--------------------------------------------------+
+; Assignment                  ; Value ; From ; To                                               ;
++-----------------------------+-------+------+--------------------------------------------------+
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[15]                                      ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[14]                                      ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[13]                                      ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[12]                                      ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[11]                                      ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[10]                                      ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[9]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[8]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[7]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[6]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[5]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[4]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[3]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[2]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[1]                                       ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[0]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_cmd[3]                                         ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_cmd[2]                                         ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_cmd[1]                                         ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_cmd[0]                                         ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_bank[1]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_bank[0]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[12]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[11]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[10]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[9]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[8]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[7]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[6]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[5]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[4]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[3]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[2]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[1]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_addr[0]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[15]                                       ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[15]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[14]                                       ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[14]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[13]                                       ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[13]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[12]                                       ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[12]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[11]                                       ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[11]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[10]                                       ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[10]                                       ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[9]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[9]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[8]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[8]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[7]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[7]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[6]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[6]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[5]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[5]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[4]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[4]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[3]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[3]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[2]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[2]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[1]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[1]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_data[0]                                        ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; m_data[0]                                        ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_dqm[1]                                         ;
+; FAST_OUTPUT_REGISTER        ; ON    ; -    ; m_dqm[0]                                         ;
+; FAST_OUTPUT_ENABLE_REGISTER ; ON    ; -    ; oe                                               ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[15]~reg0                                 ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[14]~reg0                                 ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[13]~reg0                                 ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[12]~reg0                                 ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[11]~reg0                                 ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[10]~reg0                                 ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[9]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[8]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[7]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[6]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[5]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[4]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[3]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[2]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[1]~reg0                                  ;
+; FAST_INPUT_REGISTER         ; ON    ; -    ; za_data[0]~reg0                                  ;
++-----------------------------+-------+------+--------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1 ;
++-------------------+-------+------+-------------------------------------------------------------------------------------------------------------+
+; Assignment        ; Value ; From ; To                                                                                                          ;
++-------------------+-------+------+-------------------------------------------------------------------------------------------------------------+
+; PRESERVE_REGISTER ; on    ; -    ; altera_reset_synchronizer_int_chain[1]                                                                      ;
+; PRESERVE_REGISTER ; on    ; -    ; altera_reset_synchronizer_int_chain[0]                                                                      ;
++-------------------+-------+------+-------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1 ;
++-------------------+-------+------+-----------------------------------------------------------------------------------------------------------------+
+; Assignment        ; Value ; From ; To                                                                                                              ;
++-------------------+-------+------+-----------------------------------------------------------------------------------------------------------------+
+; PRESERVE_REGISTER ; on    ; -    ; altera_reset_synchronizer_int_chain[0]                                                                          ;
+; PRESERVE_REGISTER ; on    ; -    ; altera_reset_synchronizer_int_chain[1]                                                                          ;
++-------------------+-------+------+-----------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pll:pll_unit|altera_pll:altera_pll_i ;
++--------------------------------------+------------------------+-------------------+
+; Parameter Name                       ; Value                  ; Type              ;
++--------------------------------------+------------------------+-------------------+
+; reference_clock_frequency            ; 50.0 MHz               ; String            ;
+; fractional_vco_multiplier            ; false                  ; String            ;
+; pll_type                             ; General                ; String            ;
+; pll_subtype                          ; General                ; String            ;
+; number_of_clocks                     ; 2                      ; Signed Integer    ;
+; operation_mode                       ; normal                 ; String            ;
+; deserialization_factor               ; 4                      ; Signed Integer    ;
+; data_rate                            ; 0                      ; Signed Integer    ;
+; sim_additional_refclk_cycles_to_lock ; 0                      ; Signed Integer    ;
+; output_clock_frequency0              ; 100.000000 MHz         ; String            ;
+; phase_shift0                         ; 0 ps                   ; String            ;
+; duty_cycle0                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency1              ; 100.000000 MHz         ; String            ;
+; phase_shift1                         ; -3000 ps               ; String            ;
+; duty_cycle1                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency2              ; 0 MHz                  ; String            ;
+; phase_shift2                         ; 0 ps                   ; String            ;
+; duty_cycle2                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency3              ; 0 MHz                  ; String            ;
+; phase_shift3                         ; 0 ps                   ; String            ;
+; duty_cycle3                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency4              ; 0 MHz                  ; String            ;
+; phase_shift4                         ; 0 ps                   ; String            ;
+; duty_cycle4                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency5              ; 0 MHz                  ; String            ;
+; phase_shift5                         ; 0 ps                   ; String            ;
+; duty_cycle5                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency6              ; 0 MHz                  ; String            ;
+; phase_shift6                         ; 0 ps                   ; String            ;
+; duty_cycle6                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency7              ; 0 MHz                  ; String            ;
+; phase_shift7                         ; 0 ps                   ; String            ;
+; duty_cycle7                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency8              ; 0 MHz                  ; String            ;
+; phase_shift8                         ; 0 ps                   ; String            ;
+; duty_cycle8                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency9              ; 0 MHz                  ; String            ;
+; phase_shift9                         ; 0 ps                   ; String            ;
+; duty_cycle9                          ; 50                     ; Signed Integer    ;
+; output_clock_frequency10             ; 0 MHz                  ; String            ;
+; phase_shift10                        ; 0 ps                   ; String            ;
+; duty_cycle10                         ; 50                     ; Signed Integer    ;
+; output_clock_frequency11             ; 0 MHz                  ; String            ;
+; phase_shift11                        ; 0 ps                   ; String            ;
+; duty_cycle11                         ; 50                     ; Signed Integer    ;
+; output_clock_frequency12             ; 0 MHz                  ; String            ;
+; phase_shift12                        ; 0 ps                   ; String            ;
+; duty_cycle12                         ; 50                     ; Signed Integer    ;
+; output_clock_frequency13             ; 0 MHz                  ; String            ;
+; phase_shift13                        ; 0 ps                   ; String            ;
+; duty_cycle13                         ; 50                     ; Signed Integer    ;
+; output_clock_frequency14             ; 0 MHz                  ; String            ;
+; phase_shift14                        ; 0 ps                   ; String            ;
+; duty_cycle14                         ; 50                     ; Signed Integer    ;
+; output_clock_frequency15             ; 0 MHz                  ; String            ;
+; phase_shift15                        ; 0 ps                   ; String            ;
+; duty_cycle15                         ; 50                     ; Signed Integer    ;
+; output_clock_frequency16             ; 0 MHz                  ; String            ;
+; phase_shift16                        ; 0 ps                   ; String            ;
+; duty_cycle16                         ; 50                     ; Signed Integer    ;
+; output_clock_frequency17             ; 0 MHz                  ; String            ;
+; phase_shift17                        ; 0 ps                   ; String            ;
+; duty_cycle17                         ; 50                     ; Signed Integer    ;
+; clock_name_0                         ;                        ; String            ;
+; clock_name_1                         ;                        ; String            ;
+; clock_name_2                         ;                        ; String            ;
+; clock_name_3                         ;                        ; String            ;
+; clock_name_4                         ;                        ; String            ;
+; clock_name_5                         ;                        ; String            ;
+; clock_name_6                         ;                        ; String            ;
+; clock_name_7                         ;                        ; String            ;
+; clock_name_8                         ;                        ; String            ;
+; clock_name_global_0                  ; false                  ; String            ;
+; clock_name_global_1                  ; false                  ; String            ;
+; clock_name_global_2                  ; false                  ; String            ;
+; clock_name_global_3                  ; false                  ; String            ;
+; clock_name_global_4                  ; false                  ; String            ;
+; clock_name_global_5                  ; false                  ; String            ;
+; clock_name_global_6                  ; false                  ; String            ;
+; clock_name_global_7                  ; false                  ; String            ;
+; clock_name_global_8                  ; false                  ; String            ;
+; m_cnt_hi_div                         ; 1                      ; Signed Integer    ;
+; m_cnt_lo_div                         ; 1                      ; Signed Integer    ;
+; m_cnt_bypass_en                      ; false                  ; String            ;
+; m_cnt_odd_div_duty_en                ; false                  ; String            ;
+; n_cnt_hi_div                         ; 1                      ; Signed Integer    ;
+; n_cnt_lo_div                         ; 1                      ; Signed Integer    ;
+; n_cnt_bypass_en                      ; false                  ; String            ;
+; n_cnt_odd_div_duty_en                ; false                  ; String            ;
+; c_cnt_hi_div0                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div0                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en0                     ; false                  ; String            ;
+; c_cnt_in_src0                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en0               ; false                  ; String            ;
+; c_cnt_prst0                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst0                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div1                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div1                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en1                     ; false                  ; String            ;
+; c_cnt_in_src1                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en1               ; false                  ; String            ;
+; c_cnt_prst1                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst1                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div2                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div2                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en2                     ; false                  ; String            ;
+; c_cnt_in_src2                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en2               ; false                  ; String            ;
+; c_cnt_prst2                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst2                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div3                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div3                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en3                     ; false                  ; String            ;
+; c_cnt_in_src3                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en3               ; false                  ; String            ;
+; c_cnt_prst3                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst3                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div4                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div4                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en4                     ; false                  ; String            ;
+; c_cnt_in_src4                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en4               ; false                  ; String            ;
+; c_cnt_prst4                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst4                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div5                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div5                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en5                     ; false                  ; String            ;
+; c_cnt_in_src5                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en5               ; false                  ; String            ;
+; c_cnt_prst5                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst5                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div6                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div6                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en6                     ; false                  ; String            ;
+; c_cnt_in_src6                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en6               ; false                  ; String            ;
+; c_cnt_prst6                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst6                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div7                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div7                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en7                     ; false                  ; String            ;
+; c_cnt_in_src7                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en7               ; false                  ; String            ;
+; c_cnt_prst7                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst7                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div8                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div8                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en8                     ; false                  ; String            ;
+; c_cnt_in_src8                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en8               ; false                  ; String            ;
+; c_cnt_prst8                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst8                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div9                        ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div9                        ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en9                     ; false                  ; String            ;
+; c_cnt_in_src9                        ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en9               ; false                  ; String            ;
+; c_cnt_prst9                          ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst9                   ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div10                       ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div10                       ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en10                    ; false                  ; String            ;
+; c_cnt_in_src10                       ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en10              ; false                  ; String            ;
+; c_cnt_prst10                         ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst10                  ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div11                       ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div11                       ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en11                    ; false                  ; String            ;
+; c_cnt_in_src11                       ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en11              ; false                  ; String            ;
+; c_cnt_prst11                         ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst11                  ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div12                       ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div12                       ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en12                    ; false                  ; String            ;
+; c_cnt_in_src12                       ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en12              ; false                  ; String            ;
+; c_cnt_prst12                         ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst12                  ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div13                       ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div13                       ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en13                    ; false                  ; String            ;
+; c_cnt_in_src13                       ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en13              ; false                  ; String            ;
+; c_cnt_prst13                         ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst13                  ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div14                       ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div14                       ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en14                    ; false                  ; String            ;
+; c_cnt_in_src14                       ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en14              ; false                  ; String            ;
+; c_cnt_prst14                         ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst14                  ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div15                       ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div15                       ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en15                    ; false                  ; String            ;
+; c_cnt_in_src15                       ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en15              ; false                  ; String            ;
+; c_cnt_prst15                         ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst15                  ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div16                       ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div16                       ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en16                    ; false                  ; String            ;
+; c_cnt_in_src16                       ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en16              ; false                  ; String            ;
+; c_cnt_prst16                         ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst16                  ; 0                      ; Signed Integer    ;
+; c_cnt_hi_div17                       ; 1                      ; Signed Integer    ;
+; c_cnt_lo_div17                       ; 1                      ; Signed Integer    ;
+; c_cnt_bypass_en17                    ; false                  ; String            ;
+; c_cnt_in_src17                       ; ph_mux_clk             ; String            ;
+; c_cnt_odd_div_duty_en17              ; false                  ; String            ;
+; c_cnt_prst17                         ; 1                      ; Signed Integer    ;
+; c_cnt_ph_mux_prst17                  ; 0                      ; Signed Integer    ;
+; pll_vco_div                          ; 1                      ; Signed Integer    ;
+; pll_slf_rst                          ; false                  ; String            ;
+; pll_bw_sel                           ; low                    ; String            ;
+; pll_output_clk_frequency             ; 0 MHz                  ; String            ;
+; pll_cp_current                       ; 0                      ; Signed Integer    ;
+; pll_bwctrl                           ; 0                      ; Signed Integer    ;
+; pll_fractional_division              ; 1                      ; Signed Integer    ;
+; pll_fractional_cout                  ; 24                     ; Signed Integer    ;
+; pll_dsm_out_sel                      ; 1st_order              ; String            ;
+; mimic_fbclk_type                     ; gclk                   ; String            ;
+; pll_fbclk_mux_1                      ; glb                    ; String            ;
+; pll_fbclk_mux_2                      ; fb_1                   ; String            ;
+; pll_m_cnt_in_src                     ; ph_mux_clk             ; String            ;
+; pll_vcoph_div                        ; 1                      ; Signed Integer    ;
+; refclk1_frequency                    ; 0 MHz                  ; String            ;
+; pll_clkin_0_src                      ; clk_0                  ; String            ;
+; pll_clkin_1_src                      ; clk_0                  ; String            ;
+; pll_clk_loss_sw_en                   ; false                  ; String            ;
+; pll_auto_clk_sw_en                   ; false                  ; String            ;
+; pll_manu_clk_sw_en                   ; false                  ; String            ;
+; pll_clk_sw_dly                       ; 0                      ; Signed Integer    ;
+; pll_extclk_0_cnt_src                 ; pll_extclk_cnt_src_vss ; String            ;
+; pll_extclk_1_cnt_src                 ; pll_extclk_cnt_src_vss ; String            ;
++--------------------------------------+------------------------+-------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller ;
++---------------------------+----------+------------------------------------------------------------------------------------+
+; Parameter Name            ; Value    ; Type                                                                               ;
++---------------------------+----------+------------------------------------------------------------------------------------+
+; NUM_RESET_INPUTS          ; 1        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN0     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN1     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN2     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN3     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN4     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN5     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN6     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN7     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN8     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN9     ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN10    ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN11    ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN12    ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN13    ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN14    ; 0        ; Signed Integer                                                                     ;
+; USE_RESET_REQUEST_IN15    ; 0        ; Signed Integer                                                                     ;
+; OUTPUT_RESET_SYNC_EDGES   ; deassert ; String                                                                             ;
+; SYNC_DEPTH                ; 2        ; Signed Integer                                                                     ;
+; RESET_REQUEST_PRESENT     ; 0        ; Signed Integer                                                                     ;
+; RESET_REQ_WAIT_TIME       ; 1        ; Signed Integer                                                                     ;
+; MIN_RST_ASSERTION_TIME    ; 3        ; Signed Integer                                                                     ;
+; RESET_REQ_EARLY_DSRT_TIME ; 1        ; Signed Integer                                                                     ;
+; ADAPT_RESET_REQUEST       ; 0        ; Signed Integer                                                                     ;
++---------------------------+----------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1 ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; ASYNC_RESET    ; 1     ; Unsigned Binary                                                                                                                             ;
+; DEPTH          ; 2     ; Signed Integer                                                                                                                              ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1 ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                                            ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; ASYNC_RESET    ; 0     ; Signed Integer                                                                                                                                  ;
+; DEPTH          ; 2     ; Signed Integer                                                                                                                                  ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fpga_sdram_writeall_readall_test:writeall_readall_test ;
++----------------+---------------------------+--------------------------------------------------------+
+; Parameter Name ; Value                     ; Type                                                   ;
++----------------+---------------------------+--------------------------------------------------------+
+; MAX_ADDR       ; 1111111111111111111111111 ; Unsigned Binary                                        ;
++----------------+---------------------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fpga_sdram_writeone_readone_test:writeone_readone_test ;
++----------------+---------------------------+--------------------------------------------------------+
+; Parameter Name ; Value                     ; Type                                                   ;
++----------------+---------------------------+--------------------------------------------------------+
+; MAX_ADDR       ; 1111111111111111111111111 ; Unsigned Binary                                        ;
++----------------+---------------------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1" ;
++----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                   ;
++----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------+
+; reset_in ; Input ; Info     ; Stuck at GND                                                                                                              ;
++----------+-------+----------+---------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller" ;
++----------------+--------+----------+---------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                             ;
++----------------+--------+----------+---------------------------------------------------------------------+
+; reset_req      ; Output ; Info     ; Explicitly unconnected                                              ;
+; reset_req_in0  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in1      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in1  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in2      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in2  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in3      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in3  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in4      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in4  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in5      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in5  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in6      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in6  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in7      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in7  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in8      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in8  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in9      ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in9  ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in10     ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in10 ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in11     ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in11 ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in12     ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in12 ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in13     ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in13 ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in14     ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in14 ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_in15     ; Input  ; Info     ; Stuck at GND                                                        ;
+; reset_req_in15 ; Input  ; Info     ; Stuck at GND                                                        ;
++----------------+--------+----------+---------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module" ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                               ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------+
+; almost_empty ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                   ;
+; almost_full  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                   ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "sdram_control_wrapper:sdram_ctrl_unit" ;
++--------------+-------+----------+---------------------------------+
+; Port         ; Type  ; Severity ; Details                         ;
++--------------+-------+----------+---------------------------------+
+; byteenable_n ; Input ; Info     ; Stuck at GND                    ;
+; chipselect   ; Input ; Info     ; Stuck at VCC                    ;
++--------------+-------+----------+---------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "pll:pll_unit|altera_pll:altera_pll_i"                                                                                                                     ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                                                                      ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; fboutclk          ; Output ; Info     ; Explicitly unconnected                                                                                                                       ;
+; fbclk             ; Input  ; Info     ; Stuck at GND                                                                                                                                 ;
+; refclk1           ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; phase_en          ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; updn              ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; num_phase_shifts  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; scanclk           ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; cntsel            ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; reconfig_to_pll   ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; extswitch         ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; adjpllin          ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; cclk              ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; phase_done        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; reconfig_from_pll ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; activeclk         ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; clkbad            ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; phout             ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; lvds_clk          ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; loaden            ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; extclk_out        ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; cascade_out       ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; zdbfbclk          ; Bidir  ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++-------------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "pll:pll_unit"            ;
++--------+--------+----------+------------------------+
+; Port   ; Type   ; Severity ; Details                ;
++--------+--------+----------+------------------------+
+; locked ; Output ; Info     ; Explicitly unconnected ;
++--------+--------+----------+------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 376                         ;
+;     CLR               ; 116                         ;
+;     CLR SCLR          ; 1                           ;
+;     ENA               ; 129                         ;
+;     ENA CLR           ; 55                          ;
+;     ENA CLR SCLR      ; 66                          ;
+;     ENA CLR SLD       ; 8                           ;
+;     plain             ; 1                           ;
+; arriav_io_obuf        ; 16                          ;
+; arriav_lcell_comb     ; 457                         ;
+;     arith             ; 95                          ;
+;         1 data inputs ; 95                          ;
+;     extend            ; 4                           ;
+;         7 data inputs ; 4                           ;
+;     normal            ; 358                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 50                          ;
+;         3 data inputs ; 70                          ;
+;         4 data inputs ; 98                          ;
+;         5 data inputs ; 65                          ;
+;         6 data inputs ; 65                          ;
+; boundary_port         ; 61                          ;
+; generic_pll           ; 2                           ;
+;                       ;                             ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 2.90                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+    Info: Processing started: Sun Jan 15 00:21:08 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off fpga_sdram_test -c fpga_sdram_test_driver
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dbajg/documents/projects_and_stuff/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeone_readone_test.v
+    Info (12023): Found entity 1: fpga_sdram_writeone_readone_test File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeone_readone_test.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dbajg/documents/projects_and_stuff/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v
+    Info (12023): Found entity 1: fpga_sdram_writeall_readall_test File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dbajg/documents/projects_and_stuff/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v
+    Info (12023): Found entity 1: fpga_sdram_test_driver File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dbajg/documents/projects_and_stuff/hardware_projects/arsc/sdram_controller/hdl/sdram_control_wrapper.v
+    Info (12023): Found entity 1: sdram_control_wrapper File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control_wrapper.v Line: 2
+Info (12021): Found 2 design units, including 2 entities, in source file /users/dbajg/documents/projects_and_stuff/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v
+    Info (12023): Found entity 1: sdram_control_input_efifo_module File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 21
+    Info (12023): Found entity 2: sdram_control File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 158
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dbajg/documents/projects_and_stuff/hardware_projects/arsc/sdram_controller/hdl/pll.v
+    Info (12023): Found entity 1: pll File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/pll.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dbajg/documents/projects_and_stuff/hardware_projects/arsc/sdram_controller/hdl/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/altera_reset_synchronizer.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file /users/dbajg/documents/projects_and_stuff/hardware_projects/arsc/sdram_controller/hdl/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/altera_reset_controller.v Line: 42
+Warning (10037): Verilog HDL or VHDL warning at sdram_control.v(317): conditional expression evaluates to a constant File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 317
+Warning (10037): Verilog HDL or VHDL warning at sdram_control.v(327): conditional expression evaluates to a constant File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 327
+Warning (10037): Verilog HDL or VHDL warning at sdram_control.v(337): conditional expression evaluates to a constant File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 337
+Warning (10037): Verilog HDL or VHDL warning at sdram_control.v(681): conditional expression evaluates to a constant File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 681
+Info (12127): Elaborating entity "fpga_sdram_test_driver" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_test_driver.v(108): truncated value with size 3 to match size of target (2) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 108
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_test_driver.v(134): truncated value with size 3 to match size of target (2) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 134
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_test_driver.v(139): truncated value with size 3 to match size of target (2) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 139
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_test_driver.v(152): truncated value with size 3 to match size of target (2) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 152
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_test_driver.v(154): truncated value with size 3 to match size of target (2) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 154
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_test_driver.v(166): truncated value with size 3 to match size of target (2) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 166
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_test_driver.v(168): truncated value with size 3 to match size of target (2) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 168
+Warning (10199): Verilog HDL Case Statement warning at fpga_sdram_test_driver.v(171): case item expression never matches the case expression File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 171
+Info (12128): Elaborating entity "pll" for hierarchy "pll:pll_unit" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 49
+Info (12128): Elaborating entity "altera_pll" for hierarchy "pll:pll_unit|altera_pll:altera_pll_i" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/pll.v Line: 87
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
+Info (12130): Elaborated megafunction instantiation "pll:pll_unit|altera_pll:altera_pll_i" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/pll.v Line: 87
+Info (12133): Instantiated megafunction "pll:pll_unit|altera_pll:altera_pll_i" with the following parameter: File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/pll.v Line: 87
+    Info (12134): Parameter "fractional_vco_multiplier" = "false"
+    Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
+    Info (12134): Parameter "operation_mode" = "normal"
+    Info (12134): Parameter "number_of_clocks" = "2"
+    Info (12134): Parameter "output_clock_frequency0" = "100.000000 MHz"
+    Info (12134): Parameter "phase_shift0" = "0 ps"
+    Info (12134): Parameter "duty_cycle0" = "50"
+    Info (12134): Parameter "output_clock_frequency1" = "100.000000 MHz"
+    Info (12134): Parameter "phase_shift1" = "-3000 ps"
+    Info (12134): Parameter "duty_cycle1" = "50"
+    Info (12134): Parameter "output_clock_frequency2" = "0 MHz"
+    Info (12134): Parameter "phase_shift2" = "0 ps"
+    Info (12134): Parameter "duty_cycle2" = "50"
+    Info (12134): Parameter "output_clock_frequency3" = "0 MHz"
+    Info (12134): Parameter "phase_shift3" = "0 ps"
+    Info (12134): Parameter "duty_cycle3" = "50"
+    Info (12134): Parameter "output_clock_frequency4" = "0 MHz"
+    Info (12134): Parameter "phase_shift4" = "0 ps"
+    Info (12134): Parameter "duty_cycle4" = "50"
+    Info (12134): Parameter "output_clock_frequency5" = "0 MHz"
+    Info (12134): Parameter "phase_shift5" = "0 ps"
+    Info (12134): Parameter "duty_cycle5" = "50"
+    Info (12134): Parameter "output_clock_frequency6" = "0 MHz"
+    Info (12134): Parameter "phase_shift6" = "0 ps"
+    Info (12134): Parameter "duty_cycle6" = "50"
+    Info (12134): Parameter "output_clock_frequency7" = "0 MHz"
+    Info (12134): Parameter "phase_shift7" = "0 ps"
+    Info (12134): Parameter "duty_cycle7" = "50"
+    Info (12134): Parameter "output_clock_frequency8" = "0 MHz"
+    Info (12134): Parameter "phase_shift8" = "0 ps"
+    Info (12134): Parameter "duty_cycle8" = "50"
+    Info (12134): Parameter "output_clock_frequency9" = "0 MHz"
+    Info (12134): Parameter "phase_shift9" = "0 ps"
+    Info (12134): Parameter "duty_cycle9" = "50"
+    Info (12134): Parameter "output_clock_frequency10" = "0 MHz"
+    Info (12134): Parameter "phase_shift10" = "0 ps"
+    Info (12134): Parameter "duty_cycle10" = "50"
+    Info (12134): Parameter "output_clock_frequency11" = "0 MHz"
+    Info (12134): Parameter "phase_shift11" = "0 ps"
+    Info (12134): Parameter "duty_cycle11" = "50"
+    Info (12134): Parameter "output_clock_frequency12" = "0 MHz"
+    Info (12134): Parameter "phase_shift12" = "0 ps"
+    Info (12134): Parameter "duty_cycle12" = "50"
+    Info (12134): Parameter "output_clock_frequency13" = "0 MHz"
+    Info (12134): Parameter "phase_shift13" = "0 ps"
+    Info (12134): Parameter "duty_cycle13" = "50"
+    Info (12134): Parameter "output_clock_frequency14" = "0 MHz"
+    Info (12134): Parameter "phase_shift14" = "0 ps"
+    Info (12134): Parameter "duty_cycle14" = "50"
+    Info (12134): Parameter "output_clock_frequency15" = "0 MHz"
+    Info (12134): Parameter "phase_shift15" = "0 ps"
+    Info (12134): Parameter "duty_cycle15" = "50"
+    Info (12134): Parameter "output_clock_frequency16" = "0 MHz"
+    Info (12134): Parameter "phase_shift16" = "0 ps"
+    Info (12134): Parameter "duty_cycle16" = "50"
+    Info (12134): Parameter "output_clock_frequency17" = "0 MHz"
+    Info (12134): Parameter "phase_shift17" = "0 ps"
+    Info (12134): Parameter "duty_cycle17" = "50"
+    Info (12134): Parameter "pll_type" = "General"
+    Info (12134): Parameter "pll_subtype" = "General"
+Info (12128): Elaborating entity "sdram_control_wrapper" for hierarchy "sdram_control_wrapper:sdram_ctrl_unit" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 71
+Info (12128): Elaborating entity "sdram_control" for hierarchy "sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control_wrapper.v Line: 48
+Info (12128): Elaborating entity "sdram_control_input_efifo_module" for hierarchy "sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|sdram_control_input_efifo_module:the_sdram_control_input_efifo_module" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 297
+Info (12128): Elaborating entity "altera_reset_controller" for hierarchy "sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control_wrapper.v Line: 111
+Info (12128): Elaborating entity "altera_reset_synchronizer" for hierarchy "sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/altera_reset_controller.v Line: 208
+Info (12128): Elaborating entity "altera_reset_synchronizer" for hierarchy "sdram_control_wrapper:sdram_ctrl_unit|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/altera_reset_controller.v Line: 220
+Info (12128): Elaborating entity "fpga_sdram_writeall_readall_test" for hierarchy "fpga_sdram_writeall_readall_test:writeall_readall_test" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 87
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_writeall_readall_test.v(91): truncated value with size 32 to match size of target (25) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v Line: 91
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_writeall_readall_test.v(92): truncated value with size 32 to match size of target (16) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v Line: 92
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_writeall_readall_test.v(116): truncated value with size 32 to match size of target (16) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v Line: 116
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_writeall_readall_test.v(117): truncated value with size 32 to match size of target (25) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v Line: 117
+Info (12128): Elaborating entity "fpga_sdram_writeone_readone_test" for hierarchy "fpga_sdram_writeone_readone_test:writeone_readone_test" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 103
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_writeone_readone_test.v(102): truncated value with size 32 to match size of target (16) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeone_readone_test.v Line: 102
+Warning (10230): Verilog HDL assignment warning at fpga_sdram_writeone_readone_test.v(103): truncated value with size 32 to match size of target (25) File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeone_readone_test.v Line: 103
+Info (284007): State machine "|fpga_sdram_test_driver|fpga_sdram_writeone_readone_test:writeone_readone_test|state_reg" will be implemented as a safe state machine. File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeone_readone_test.v Line: 29
+Info (284007): State machine "|fpga_sdram_test_driver|fpga_sdram_writeall_readall_test:writeall_readall_test|state_reg" will be implemented as a safe state machine. File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_writeall_readall_test.v Line: 29
+Info (284007): State machine "|fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_next" will be implemented as a safe state machine. File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 247
+Info (284007): State machine "|fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|m_state" will be implemented as a safe state machine. File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 248
+Info (284007): State machine "|fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_next" will be implemented as a safe state machine. File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 237
+Info (284007): State machine "|fpga_sdram_test_driver|sdram_control_wrapper:sdram_ctrl_unit|sdram_control:sdram_control_unit|i_state" will be implemented as a safe state machine. File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/hdl/sdram_control.v Line: 239
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 5
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 5
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 5
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 5
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 5
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 5
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 5
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 6
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 6
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 6
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 6
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 6
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 10
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 10
+    Warning (13410): Pin "DRAM_CKE" is stuck at VCC File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 13
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 17 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 8 node(s), including 0 DDIO, 2 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/sdram_controller/fpga_sdram_test/fpga_sdram_test_driver.v Line: 4
+Info (21057): Implemented 684 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 40 output pins
+    Info (21060): Implemented 16 bidirectional pins
+    Info (21061): Implemented 621 logic cells
+    Info (21065): Implemented 2 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 38 warnings
+    Info: Peak virtual memory: 907 megabytes
+    Info: Processing ended: Sun Jan 15 00:21:24 2017
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:36
+
+

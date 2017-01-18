@@ -1,0 +1,57 @@
+C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/bench/arsc_hcu_tb.v {1 {vlog -work arsc_cpu -vopt {C:\Users\dbajg\Documents\PROJECTS_AND_STUFF\hardware_projects\arsc\cpu\bench\arsc_hcu_tb.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module arsc_hcu_tb
+
+Top level modules:
+	arsc_hcu_tb
+
+} {} {}} C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/bench/arsc_cpu_tb.v {1 {vlog -work arsc_cpu -vopt {C:\Users\dbajg\Documents\PROJECTS_AND_STUFF\hardware_projects\arsc\cpu\bench\arsc_cpu_tb.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module arsc_cpu_tb
+
+Top level modules:
+	arsc_cpu_tb
+
+} {} {}} C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/hdl/arsc_alu.v {1 {vlog -work arsc_cpu -vopt {C:\Users\dbajg\Documents\PROJECTS_AND_STUFF\hardware_projects\arsc\cpu\hdl\arsc_alu.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module arsc_alu
+
+Top level modules:
+	arsc_alu
+
+} {} {}} C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/hdl/arsc_bus.v {1 {vlog -work arsc_cpu -vopt {C:\Users\dbajg\Documents\PROJECTS_AND_STUFF\hardware_projects\arsc\cpu\hdl\arsc_bus.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module arsc_bus
+
+Top level modules:
+	arsc_bus
+
+} {} {}} C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/bench/arsc_bus_tb.v {1 {vlog -work arsc_cpu -vopt C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/bench/arsc_bus_tb.v
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module arsc_bus_tb
+
+Top level modules:
+	arsc_bus_tb
+
+} {} {}} C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/bench/arsc_alu_tb.v {1 {vlog -work arsc_cpu -vopt {C:\Users\dbajg\Documents\PROJECTS_AND_STUFF\hardware_projects\arsc\cpu\bench\arsc_alu_tb.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module arsc_alu_tb
+
+Top level modules:
+	arsc_alu_tb
+
+} {} {}} C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/hdl/arsc_cpu.v {1 {vlog -work arsc_cpu -vopt {C:\Users\dbajg\Documents\PROJECTS_AND_STUFF\hardware_projects\arsc\cpu\hdl\arsc_cpu.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module arsc_cpu
+
+Top level modules:
+	arsc_cpu
+
+} {} {}} C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/cpu/hdl/arsc_hcu.v {1 {vlog -work arsc_cpu -vopt {C:\Users\dbajg\Documents\PROJECTS_AND_STUFF\hardware_projects\arsc\cpu\hdl\arsc_hcu.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module arsc_hcu
+
+Top level modules:
+	arsc_hcu
+
+} {} {}}

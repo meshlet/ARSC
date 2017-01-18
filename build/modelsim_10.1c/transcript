@@ -1,0 +1,17 @@
+# Reading C:/Program Files/modeltech64_10.1c/tcl/vsim/pref.tcl 
+# ** Error: (vish-19) Failed to access library 'work' at "work".
+# The system cannot find the file specified.
+# . (GetLastError() = 2)
+# //  ModelSim SE-64 10.1c Jul 28 2012 
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# ** Error: (vish-19) Failed to access library 'work' at "work".
+# No such file or directory. (errno = ENOENT)
+# OpenFile C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/build/modelsim_10.1c/arsc_cpu.mpf 
+# Loading project arsc_cpu

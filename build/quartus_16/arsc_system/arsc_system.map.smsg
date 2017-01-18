@@ -1,0 +1,4 @@
+Warning (10273): Verilog HDL warning at memory_controller.v(64): extended using "x" or "z" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/memory_controller/hdl/memory_controller.v Line: 64
+Warning (10273): Verilog HDL warning at memory_controller.v(65): extended using "x" or "z" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/memory_controller/hdl/memory_controller.v Line: 65
+Warning (10273): Verilog HDL warning at memory_controller.v(69): extended using "x" or "z" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/memory_controller/hdl/memory_controller.v Line: 69
+Warning (10273): Verilog HDL warning at memory_controller.v(70): extended using "x" or "z" File: C:/Users/dbajg/Documents/PROJECTS_AND_STUFF/hardware_projects/arsc/memory_controller/hdl/memory_controller.v Line: 70

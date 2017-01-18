@@ -1,0 +1,11 @@
+LDA A
+ADD B
+ADD C
+STA D
+HLT
+
+A BSC 5
+B BSC 7
+C BSC -3
+D BSS 1
+END

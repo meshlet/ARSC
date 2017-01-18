@@ -10,7 +10,7 @@ system:
 ARSC should read this document, especially those who plan to modify and/or extend the hardware platform.
 
 * [How-To Synthesize ARSC](docs/COMPILE_ARSC.md) - explains how to synthesize the ARSC design for Altera FPGA's and gives suggestions
-of what has to be modified to make ARSC compile for FPGAs of other manufacturers.
+of what has to be modified to make ARSC compile for FPGAs produced by other manufacturers.
 
 * [Programming ARSC](docs/PROGRAMMING_ARSC.md) - delves into ARSC ISA, ARSC assembly and aims to bring readers up-to speed with ARSC
 assembly programming.
@@ -30,6 +30,6 @@ assembly programming.
 ## Supported FPGAs
 
 This section lists all the FPGA boards that successfully ran the ARSC design. I would kindly ask to send me a notification in case you
-test the ARSC system on a FPGA board not listed here. Currently tested FPGAs:
+sucessfully ran the ARSC system on a FPGA board not listed here. Currently tested FPGAs:
 
 * Altera DE0-CV (Cyclone V)

@@ -10,7 +10,7 @@ system:
 provides enough details on the ARSC internals without overwhelming the reader with too many architectural and hardware details. It also
 presents the ARSC instruction set and ARSC assembly giving enough context to start writing ARSC programs.
 
-* [ARSC ASSEMBLER](docs/ARSC_ASSEMBLER.md) - tutorial on the ARSC assembler and how to use it to translate ARSC assembly programs to the
+* [ARSC Assembler](docs/ARSC_ASSEMBLER.md) - tutorial on the ARSC assembler and how to use it to translate ARSC assembly programs to the
 ARSC executable code.
 
 * [Synthesizing ARSC](docs/SYNTHESIZE_ARSC.md) - explains how to synthesize the ARSC design for Altera FPGA's and gives suggestions
@@ -30,7 +30,7 @@ the ARSC hardware platform.
 * *VGA controller* - implements VGA synchronization circuit and rendering.
 * *Video RAM* - implemented as a dual-port on-chip memory.
 * *PS/2 Keyboard controller* - PS/2 receiver and keyboard interface circuit.
-* *ARSC assembler* - compiles a program written in the ARSC assembly language into ARSC machine code ready to be run by the ARSC CPU.
+* *ARSC assembler* - translates the ARSC assembly program into the ARSC executable code ready to be run by the ARSC CPU.
 
 ## Supported FPGAs
 

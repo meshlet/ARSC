@@ -531,7 +531,7 @@ instructions (executable and directive) are written in ***uppercase***.
 
 Symbols in ARSC assembly all use the same naming rules - the valid symbol name is any sequence of alphanumeric characters and an
 underscore that begins with a uppercase or lowercase letter or an underscore. This rule applies to all of the following: symbolic
-addresses, [labels](#label), [BSS symbols](#bss), [BSC symbols](#bsc) and [ALIAS symbols](#alias).
+addresses, [labels](#labels), [BSS](#bss), [BSC](#bsc) and [ALIAS](#alias) symbols.
 
 Wherever the numeric literal is expected, it may be provided in decimal or hexadecimal format. The hexadecimal numbers must be written
 with the *0x* prefix. There is not exception to this rule: only decimal numbers are allowed when specifying the INDEX register in case
@@ -539,7 +539,7 @@ of indexed addressing.
 
 ### Executable Instructions
 
-As shown in [#Instruction Set](instruction-set) section, the general format of the executable assembly instruction is:
+As shown in [Instruction Set](#instruction-set) section, the general format of the executable assembly instruction is:
 
 ```
 MNEMONIC *ADDRESS,INDEX

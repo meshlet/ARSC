@@ -1,21 +1,26 @@
 # ARSC (A Relatively Simple Computer)
 
 ARSC is a FPGA-based, 16-bit computer system. It's instruction set and CPU architecture are based on the hypothetical computer system
-designed in Computer Organization, Design and Architecture, 4th Edition by Sajjan G. Shiva.
+designed in *Computer Organization, Design and Architecture, 4th Edition by Sajjan G. Shiva*.
 
 In the interest of clarity, the ARSC documentation is divided into several seperated documents each covering a specific portion of the
 system:
 
-* [ARSC Architecture](docs/ARSC_ARCH.md) - describes ARSC system architecture in greater detail. Anyone who wishes to experiement with
-ARSC should read this document, especially those who plan to modify and/or extend the hardware platform.
+* [Programming ARSC](docs/PROGRAMMING_ARSC.md) - this is the recommended starting point for anyone who wishes to learn about ARSC. It
+provides enough details on the ARSC internals without overwhelming the reader with too many architectural and hardware details. It also
+presents the ARSC instruction set and ARSC assembly giving enough context to start writing ARSC programs.
 
-* [How-To Synthesize ARSC](docs/COMPILE_ARSC.md) - explains how to synthesize the ARSC design for Altera FPGA's and gives suggestions
+* [ARSC ASSEMBLER](docs/ARSC_ASSEMBLER.md) - tutorial on the ARSC assembler and how to use it to translate ARSC assembly programs to the
+ARSC executable code.
+
+* [Synthesizing ARSC](docs/SYNTHESIZE_ARSC.md) - explains how to synthesize the ARSC design for Altera FPGA's and gives suggestions
 of what has to be modified to make ARSC compile for FPGAs produced by other manufacturers.
 
-* [Programming ARSC](docs/PROGRAMMING_ARSC.md) - delves into ARSC ISA, ARSC assembly and aims to bring readers up-to speed with ARSC
-assembly programming.
+* [ARSC Hardware Platform](docs/ARSC_HW_PLATFORM.md) - describes the ARSC system architecture and hardware design in detail. This document
+us intended to those who wishes to understand the ARSC from the hardware design point of view, and those who wish to experiment and modify
+the ARSC hardware platform.
 
-* [Performance Evaluation](ARSC_PERFORMANCE.md) - gives summary of the theoretical evaluation of the performance for the ARSC system.
+* [Performance Evaluation](PERFORMANCE_EVALUATION.md) - gives summary of the performance evaluation for the ARSC system.
 
 ## Features
 

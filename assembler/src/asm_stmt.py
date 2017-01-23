@@ -123,6 +123,7 @@ class AsmInstruction:
             return
 
         # Validate address
+        # FIXME: allow address to be an arithmetic epression such as A+1 or A-5
         if address is None:
             raise SyntaxError('instruction "%s" expects an address' % mnemonic)
         elif is_valid_name(address):

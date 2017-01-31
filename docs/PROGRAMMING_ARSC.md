@@ -471,7 +471,7 @@ row and column respectively):
 The MSB bit of the word is unused. If there was be only one pixel per 16-bit word, video memory would be *307200 x 16-bits*. As there
 are 5 pixels per 16-bit word, the video memory is organized as:
 
-*(307200/5) x 16-bits* = 61440 x 16-bits*.
+*(307200/5) x 16-bits = 61440 x 16-bits*.
 
 which is less than 64K meaning that ARSC CPU can draw the entire screen. Total capacity of the ARSC video memory is *122880 B*.
 
@@ -531,7 +531,7 @@ instructions (executable and directive) are written in ***uppercase***.
 
 Symbols in ARSC assembly all use the same naming rules - the valid symbol name is any sequence of alphanumeric characters and an
 underscore that begins with a uppercase or lowercase letter or an underscore. This rule applies to all of the following: symbolic
-addresses, [labels](#labels), [BSS](#bss), [BSC](#bsc) and [ALIAS](#alias) symbols.
+addresses, [Labels](#labels), [BSS](#bss), [BSC](#bsc) and [ALIAS](#alias) symbols.
 
 Wherever the numeric literal is expected, it may be provided in decimal or hexadecimal format. The hexadecimal numbers must be written
 with the *0x* prefix. There is not exception to this rule: only decimal numbers are allowed when specifying the INDEX register in case

@@ -39,7 +39,6 @@ module memory_controller
 		if (MEMORY_TYPE == 0)
 		begin
 			/// Use on-chip RAM as the main memory
-			/// Video ram
 			onchip_main_ram main_ram_unit
 			(
 				.address(address),

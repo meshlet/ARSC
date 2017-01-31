@@ -13,8 +13,9 @@ presents the ARSC instruction set and ARSC assembly giving enough context to sta
 * [ARSC Assembler](docs/ARSC_ASSEMBLER.md) - tutorial on the ARSC assembler and how to use it to translate ARSC assembly programs to the
 ARSC executable code.
 
-* [Synthesizing ARSC](docs/SYNTHESIZE_ARSC.md) - explains how to synthesize the ARSC design for Altera FPGA's and gives suggestions
-of what has to be modified to make ARSC compile for FPGAs produced by other manufacturers.
+* [Build and Run ARSC](docs/BUILD_RUN_ARSC.md) - explains how to build the ARSC design for Altera FPGA's and gives suggestions of
+of what has to be modified to make ARSC compile for FPGAs produced by other manufacturers. It also explains how to load ARSC machine
+programs (produced by the [ARSC Assembler](docs/ARSC_ASSEMBLER.md)) to the ARSC main memory and start/stop the ARSC system.
 
 * [ARSC Hardware Platform](docs/ARSC_HW_PLATFORM.md) - describes the ARSC system architecture and hardware design in detail. This document
 us intended to those who wishes to understand the ARSC from the hardware design point of view, and those who wish to experiment and modify
